@@ -1,12 +1,13 @@
 import { Mastra } from "@mastra/core/mastra";
 import { PinoLogger } from "@mastra/loggers";
-import { weatherAgent } from "./agents/weather-agent/weather-agent"; // This can be deleted later
-import { weatherWorkflow } from "./agents/weather-agent/weather-workflow"; // This can be deleted later
-import { yourAgent } from "./agents/your-agent/your-agent"; // Build your agent here
+import { weatherAgent } from "./agents/weather-agent/weather-agent"; 
+import { weatherWorkflow } from "./agents/weather-agent/weather-workflow";
+import { tradingBot } from "./agents/trading-bot/trading-agent";
+import { tradingWorkflow } from "./agents/trading-bot/trading-workflow";
 
 export const mastra = new Mastra({
-	workflows: { weatherWorkflow }, // can be deleted later
-	agents: { weatherAgent, yourAgent },
+	workflows: { weatherWorkflow, tradingWorkflow },
+	agents: { weatherAgent, tradingBot },
 	logger: new PinoLogger({
 		name: "Mastra",
 		level: "info",
